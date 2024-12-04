@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Reactive Form </h1>
+            <form [formGroup]="studentForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control mt-2"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Username</label>
+                        <input type="text" formControlName="userName" class="form-control mt-2"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>City</label>
+                        <input type="text" formControlName="city" class="form-control"/>
+                    </div>
+                    <div class="col-md-3">
+                        <label>State</label>
+                        <input type="text" formControlName="state" class="form-control"/>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Zip</label>
+                        <input type="text" formControlName="zip" class="form-control"/>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-danger me-2" type="reset">Reset</button>
+                    <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+                </div>
+                </form>
+        </div>
+        <div class="col-md-4">
+            <h1>Using Json Pipe</h1>
+            {{formValue | json}}
+            <div>
+            </div>
+        </div>
+    </div>
+</div>  

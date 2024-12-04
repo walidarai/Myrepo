@@ -1,0 +1,38 @@
+<div *ngIf="isDiv1Visilble" class="bg-danger">
+    <h1>Hii</h1> 
+</div>
+<div>
+    <button class="btn btn-warning" (click)="toggleButton()"> Click Me</button>
+</div>
+<div class="bg-warning mt-2">
+    <strong *ngFor="let city of cityArray" class=""> {{city}}</strong> 
+</div>
+<div class="">
+    <table [ngClass]="isActive ? 'table-light':'table-dark'" class="table table-border text-center"> 
+        <thead>
+            <tr>
+                <th>SR NO</th>
+                <th> Name </th>
+                <th> Age </th>
+                <th> Contact </th>
+                <th> Address </th>
+                <th> Total Percentage </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of arrayObject;let sr = index">
+                <td>{{sr + 1}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.address}}</td>
+                <td>
+                    <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{'width':data.percentage+'%'}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">{{data.percentage}}</div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" (click)="changeColor()">Change Table color</button>
+</div>

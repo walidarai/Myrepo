@@ -1,0 +1,17 @@
+<div class="abcd sticky-top">
+    <h1>{{coursename}}</h1>
+    <input type="text" [value]="coursename"/> <strong>this is Property Binding</strong><br/>
+    <input type="text" placeholder="Enter Your Text Here" [(ngModel)]="coursename"/> - {{coursename}}
+    <button class="btn btn-danger mb-2" (click)="changeMyCourseName()"> Change Name </button>
+</div>
+<div class="col-3 m-5 ">
+    <div class="card">
+        <div [ngStyle]="{'background-color':isChange?'lightgreen':'lightblue'}" class="card-header text-center">
+            <h1>Using ngStyle </h1>
+        </div>
+        <div [ngStyle]="{'background-color':isChange?'lightgreen':'lightblue'}" class="card-body"> 
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus perspiciatis assumenda minima explicabo obcaecati? Numquam omnis molestias voluptates natus. Iusto obcaecati commodi molestiae nihil cumque possimus quaerat. Labore, doloremque natus.</p>
+        </div>
+        <button class="btn btn-success" (click)="changeStyle()">Change</button>
+    </div>
+</div>

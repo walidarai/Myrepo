@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Template Form </h1>
+            <form #form="ngForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" #fName="ngModel" [(ngModel)]="studentObj.firstName" 
+                        class="form-control mt-2" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (fName.touched && fName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (fName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" #lName="ngModel" [(ngModel)]="studentObj.lastName" class="form-control mt-2" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (lName.touched && lName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (lName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Username</label>
+                        <input type="text" name="userName" #uName="ngModel" [(ngModel)]="studentObj.userName" class="form-control mt-2" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (uName.touched && uName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (uName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>City</label>
+                        <input type="text" name="lascitytName" #cName="ngModel" [(ngModel)]="studentObj.city" class="form-control" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (cName.touched && cName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (cName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>State</label>
+                        <input type="text" name="state" #sName="ngModel" [(ngModel)]="studentObj.state" class="form-control" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (sName.touched && sName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (sName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Zip</label>
+                        <input type="text" name="zip" #zName="ngModel" [(ngModel)]="studentObj.zip" class="form-control" required minlength="3"/>
+                        <div class="text-danger">
+                            @if (zName.touched && zName.errors?.['required']) {
+                                <span>This is not a valid input</span>
+                            }@else if (zName.errors?.['minlength']) {
+                                <span>Minimum 3 charachters </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-danger me-2" type="reset">Reset</button>
+                    <button class="btn btn-success" [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+                </div>
+                </form>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h1>Using Json Pipe </h1>
+                {{formsubmit | json}}
+            </div>
+        </div>
+    </div>
+</div>  
