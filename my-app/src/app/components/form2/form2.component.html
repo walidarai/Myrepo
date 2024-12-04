@@ -7,33 +7,70 @@
                     <div class="col-md-4">
                         <label>First Name</label>
                         <input type="text" formControlName="firstName" class="form-control"/>
+                        <div class="text-danger">
+                            @if (studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['required']) {
+                                <span>This is Required </span>
+                            }@else if (studentForm.controls['firstName'].errors?.['minlength']) {
+                                <span>Minimum 4 charachters Required </span>
+                            }
+                            
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <label>Last Name</label>
                         <input type="text" formControlName="lastName" class="form-control mt-2"/>
+                        <div class="text-danger">
+                            @if (studentForm.controls['lastName'].touched && studentForm.controls['lastName'].errors?.['required']) {
+                                <span> This is Required </span>
+                            }@else if(studentForm.controls['lastName'].errors?.['minlength']){
+                                <span> Minimum 4 charachters Required </span>
+                            }
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <label>Username</label>
                         <input type="text" formControlName="userName" class="form-control mt-2"/>
+                        <div class="text-danger">
+                            @if ( studentForm.controls['userName'].touched && studentForm.controls['userName'].errors?.['required']) {
+                                <span> This is Required </span>
+                            }@else if (studentForm.controls['userName'].touched && studentForm.controls['userName'].errors?.['email']) {
+                                <span> Please Enter Correct Email </span>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label>City</label>
                         <input type="text" formControlName="city" class="form-control"/>
+                        <div class="text-danger">
+                            @if ( studentForm.controls['city'].touched && studentForm.controls['city'].errors?.['required']) {
+                                <span> This is Required </span>
+                            }
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <label>State</label>
                         <input type="text" formControlName="state" class="form-control"/>
+                        <div class="text-danger">
+                            @if ( studentForm.controls['state'].touched && studentForm.controls['state'].errors?.['required']) {
+                                <span> This is Required </span>
+                            }
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <label>Zip</label>
                         <input type="text" formControlName="zip" class="form-control"/>
+                        <div class="text-danger">
+                            @if ( studentForm.controls['zip'].touched && studentForm.controls['zip'].errors?.['required']) {
+                                <span> This is Required </span>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="mt-2">
                     <button class="btn btn-danger me-2" type="reset">Reset</button>
-                    <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+                    <button class="btn btn-success" [disabled]="studentForm.invalid" (click)="onSubmit()">Submit</button>
                 </div>
                 </form>
         </div>
