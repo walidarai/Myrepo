@@ -48,8 +48,32 @@ export class NewEmployeeComponent implements OnInit {
   getDep(){
     this.http.get("https://projectapi.gerasim.in/api/Complaint/GetParentDepartment").subscribe((res:any)=>{
       this.depList=res.data;
-      console.log(this.depList)
     })
   }
 
+  getEdit(data : any){
+    this.depData = data;
+  }
+  
+  onDelete(id:number){
+    this.http.delete("https://projectapi.gerasim.in/api/Complaint/DeletedepartmentBydepartmentId?departmentId="+id).subscribe((res:any)=>{
+      if(res.result){
+        alert("Data Deleted Sucessfully")
+        this.getDep()
+      }else{
+        alert(res.message)
+      }
+    })
+  }
+  
+  onUpdate(){
+    this.http.post("https://projectapi.gerasim.in/api/Complaint/UpdateDepartment", this.depData).subscribe((res:any)=>{
+      if(res.result){
+        alert("Data Updated Sucessfully")
+        this.getDep()
+      }else{
+        alert(res.message)
+      }
+    })
+  }
 }
