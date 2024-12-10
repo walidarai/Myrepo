@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component,OnInit} from '@angular/core';
+import { Component,inject,OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-new-employee',
@@ -14,7 +15,9 @@ export class NewEmployeeComponent implements OnInit {
   userList:any  = [];
   depList:any  = [];
 
-  constructor(private http: HttpClient){
+  http = inject(HttpClient)
+
+  constructor(private depSrv:DepartmentService){
 
   }
 
@@ -34,22 +37,22 @@ export class NewEmployeeComponent implements OnInit {
     "departmentLogo": ""
   }
 
-  onSave(){
-    this.http.post("https://projectapi.gerasim.in/api/Complaint/AddNewDepartment", this.depData).subscribe((res:any)=>{
-      if(res.result){
-        alert("Data Sent Sucessfully")
-        this.getDep()
-      }else{
-        alert(res.message)
-      }
-    })
-  }
+  // onSave(){
+  //   this.http.post("https://projectapi.gerasim.in/api/Complaint/AddNewDepartment", this.depData).subscribe((res:any)=>{
+  //     if(res.result){
+  //       alert("Data Sent Sucessfully")
+  //       this.getDep()
+  //     }else{
+  //       alert(res.message)
+  //     }
+  //   })
+  // }
 
-  getDep(){
-    this.http.get("https://projectapi.gerasim.in/api/Complaint/GetParentDepartment").subscribe((res:any)=>{
-      this.depList=res.data;
-    })
-  }
+  // getDep(){
+  //   this.http.get("https://projectapi.gerasim.in/api/Complaint/GetParentDepartment").subscribe((res:any)=>{
+  //     this.depList=res.data;
+  //   })
+  // }
 
   getEdit(data : any){
     this.depData = data;
@@ -70,6 +73,22 @@ export class NewEmployeeComponent implements OnInit {
     this.http.post("https://projectapi.gerasim.in/api/Complaint/UpdateDepartment", this.depData).subscribe((res:any)=>{
       if(res.result){
         alert("Data Updated Sucessfully")
+        this.getDep()
+      }else{
+        alert(res.message)
+      }
+    })
+  }
+
+  getDep(){
+    this.depSrv.getAllDepartment().subscribe((res:any)=>{
+      this.depList=res.data;
+    })
+  }
+  onSave(){
+    this.depSrv.saveNew(this.depData).subscribe((res:any)=>{
+      if(res.result){
+        alert("Data Sent Sucessfully")
         this.getDep()
       }else{
         alert(res.message)
