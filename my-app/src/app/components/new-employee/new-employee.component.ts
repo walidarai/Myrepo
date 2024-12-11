@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component,inject,OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DepartmentService } from '../../services/department.service';
+import { AlertComponent } from "../../reusable/alert/alert.component";
+import { MyButtonComponent } from "../../reusable/my-button/my-button.component";
 
 @Component({
   selector: 'app-new-employee',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AlertComponent, MyButtonComponent],
   templateUrl: './new-employee.component.html',
   styleUrl: './new-employee.component.css'
 })
@@ -15,9 +17,9 @@ export class NewEmployeeComponent implements OnInit {
   userList:any  = [];
   depList:any  = [];
 
-  http = inject(HttpClient)
+  // http = inject(HttpClient)
 
-  constructor(private depSrv:DepartmentService){
+  constructor(private depSrv:DepartmentService,private http :HttpClient){
 
   }
 
