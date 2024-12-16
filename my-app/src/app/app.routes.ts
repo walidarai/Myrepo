@@ -6,6 +6,7 @@ import { EditEmployeeComponent } from './components/life-Cycle-Events/edit-emplo
 import { FormsComponent } from './components/forms/forms.component';
 import { Form2Component } from './components/form2/form2.component';
 import { NgTemplateComponent } from './components/ng-template/ng-template.component';
+import { NgContainerComponent } from './components/ng-container/ng-container.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path:'ng-template',
         component: NgTemplateComponent,
+    },
+    {
+        path:'ng-container',
+        component: NgContainerComponent,
     },
 ];
