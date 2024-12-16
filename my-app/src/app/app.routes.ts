@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
-import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { NewEmployeeComponent } from './components/http-Client/new-employee.component';
+import { EditEmployeeComponent } from './components/life-Cycle-Events/edit-employee.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { Form2Component } from './components/form2/form2.component';
+import { NgTemplateComponent } from './components/ng-template/ng-template.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path:'form2',
         component: Form2Component
+    },
+    {
+        path:'ng-template',
+        component: NgTemplateComponent,
     },
 ];
