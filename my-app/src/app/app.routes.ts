@@ -7,6 +7,7 @@ import { FormsComponent } from './components/forms/forms.component';
 import { Form2Component } from './components/form2/form2.component';
 import { NgTemplateComponent } from './components/ng-template/ng-template.component';
 import { NgContainerComponent } from './components/ng-container/ng-container.component';
+import { ViewChildComponent } from './components/view-child/view-child.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +41,9 @@ export const routes: Routes = [
     {
         path:'ng-container',
         component: NgContainerComponent,
+    },
+    {
+        path:'view-child',
+        component: ViewChildComponent,
     },
 ];

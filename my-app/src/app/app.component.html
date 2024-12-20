@@ -6,6 +6,9 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="edit-emp"> Life Cycle Events </a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" routerLink="add-emp"> Add Employee</a>
         </li>
@@ -13,24 +16,34 @@
           <a class="nav-link" routerLink="emp-list"> Employee List </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="form1"> Form1(TF) </a>
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle text-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Forms
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="nav-link text-dark" routerLink="form1">Template From </a>
+              <a class="nav-link text-dark" routerLink="form2">Reactive Form</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="form2"> Form2(RF) </a>
-        </li>
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle text-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Directive
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="nav-link text-dark" routerLink="ng-template"> Ng-Template </a>
+              <a class="nav-link text-dark" routerLink="ng-container"> Ng-Container </a>
+            </div>
+          </div>
+        </li>  
         <li class="nav-item">
           <a class="nav-link" routerLink="new-emp"> Http client </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="edit-emp"> Life Cycle Events </a>
+          <a class="nav-link" routerLink="view-child"> View-Child </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="ng-template"> Ng-Template </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="ng-container"> Ng-Container </a>
-        </li>
-      </ul>
+      </ul>  
     </div>
   </nav>
   <div class="container">
