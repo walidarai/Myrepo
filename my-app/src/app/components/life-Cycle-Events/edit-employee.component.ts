@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, NgZoneOptions, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-edit-employee',
@@ -12,9 +13,11 @@ export class EditEmployeeComponent implements OnChanges,OnDestroy,OnInit,DoCheck
 
   firstName:string;
 
-constructor(){
-  console.log("Constructor")
+constructor(private deptService : DepartmentService){
   this.firstName = "";
+  this.deptService.onRoleChange$.subscribe((role:string)=>{
+    debugger;
+  })
 }
 
 ngOnInit(): void {
