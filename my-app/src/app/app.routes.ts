@@ -10,6 +10,7 @@ import { NgContainerComponent } from './components/ng-container/ng-container.com
 import { ViewChildComponent } from './components/view-child/view-child.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { authGuard } from './services/auth.guard';
 
 export const routes: Routes = [
 
@@ -29,39 +30,48 @@ export const routes: Routes = [
         children: [
             {
                 path:'add-emp',
-                component: AddEmployeeComponent
+                component: AddEmployeeComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'emp-list',
-                component: EmployeeListComponent
+                component: EmployeeListComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'edit-emp',
-                component: EditEmployeeComponent
+                component: EditEmployeeComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'new-emp',
-                component: NewEmployeeComponent
+                component: NewEmployeeComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'form1',
-                component: FormsComponent
+                component: FormsComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'form2',
-                component: Form2Component
+                component: Form2Component,
+                canActivate:[authGuard]
             },
             {
                 path:'ng-template',
                 component: NgTemplateComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'ng-container',
                 component: NgContainerComponent,
+                canActivate:[authGuard]
             },
             {
                 path:'view-child',
                 component: ViewChildComponent,
+                canActivate:[authGuard]
             },
         ]
     },
