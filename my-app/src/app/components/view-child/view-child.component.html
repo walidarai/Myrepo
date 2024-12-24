@@ -2,7 +2,12 @@
     <h4>view-child</h4>
 </div>
 <div class="row">
+    <div class="col-12">
+        <app-alert [message]="'Hello Alert from View-Child'" [alertType]="'Success'"></app-alert>
+    </div>
+</div>
+<div class="row">
     <div class="col-3">
-        <input type="text" >
+        <input type="text" #txt placeholder="Enter Some Value Here" class="form-control">
     </div>
 </div>
