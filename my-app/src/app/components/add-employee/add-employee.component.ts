@@ -2,6 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -16,9 +17,17 @@ export class AddEmployeeComponent {
 
   isChange = false;
 
+  currentRole:string = "";
 
-  constructor(){
 
+  constructor(private deptService: DepartmentService){
+    this.deptService.onRoleChange$.subscribe((role:string)=>{
+      this.currentRole = role
+    })
+    debugger;
+    this.deptService.onRoleChange$.subscribe((role:string)=>{
+      this.currentRole = role
+    })
   }
   changeStyle(){
     this.isChange =!this.isChange;
@@ -26,4 +35,5 @@ export class AddEmployeeComponent {
   changeMyCourseName(){
     this.coursename ="Angular Js";
   }
+
 }
